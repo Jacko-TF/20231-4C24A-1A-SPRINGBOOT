@@ -15,4 +15,3 @@ spring:
           auth0:
             # trailing slash is important!
             issuer-uri: https://dev-hfm58bxg2683jzf2.us.auth0.com/
-         
