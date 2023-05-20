@@ -10,14 +10,13 @@ import java.util.Date;
 @Entity 
 public class Users {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(columnDefinition = "varchar(255)", 
-			unique = true, nullable = false)
+	@Column(columnDefinition = "varchar(255)", unique = false, nullable = false)
 	private String username;
 	
-    @Column(columnDefinition = "varchar(255)", unique = true, nullable = false)
+    @Column(columnDefinition = "varchar(255)", unique = false, nullable = false)
 	private String nickname;
 	
 	@Column(columnDefinition = "varchar(255)", unique = true, nullable = false)
@@ -142,7 +141,5 @@ public class Users {
 	public void setEmail_Verified(boolean email_Verified) {
 		this.email_Verified = email_Verified;
 	}
-	
-	
 
 }
