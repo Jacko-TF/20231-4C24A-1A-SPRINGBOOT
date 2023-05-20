@@ -1,5 +1,6 @@
 package com.example.funkeate.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,25 +12,39 @@ public class Users {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-
+	
+	@Column(columnDefinition = "varchar(255)", 
+			unique = true, nullable = false)
 	private String username;
 	
+    @Column(columnDefinition = "varchar(255)", unique = true, nullable = false)
 	private String nickname;
-
+	
+	@Column(columnDefinition = "varchar(255)", unique = true, nullable = false)
 	private String email;
 	
+	@Column(columnDefinition = "varchar(124)", unique = true, nullable = false)
 	private String password;
 	
-	private Date last_login;
-	
+    @Column(columnDefinition = "boolean default false")
 	private boolean is_superuser;
 	
+    @Column(columnDefinition = "boolean default false")
 	private boolean is_staff;
 	
+    @Column(columnDefinition = "boolean default true")
 	private boolean is_active;
 	
+    @Column(columnDefinition = "boolean default false")
+	private boolean email_Verified;
+    
+    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	private Date last_login;
+	
+    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date date_joined;
 	
+    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date created_at;
 
 	public Long getId() {
@@ -118,6 +133,14 @@ public class Users {
 
 	public void setCreated_at(Date created_at) {
 		this.created_at = created_at;
+	}
+
+	public boolean getEmail_Verified() {
+		return email_Verified;
+	}
+
+	public void setEmail_Verified(boolean email_Verified) {
+		this.email_Verified = email_Verified;
 	}
 	
 	

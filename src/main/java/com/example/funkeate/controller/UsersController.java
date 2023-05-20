@@ -17,7 +17,7 @@ public class UsersController {
 	@Autowired
 	private UsersRepository usersRepository;
 	
-	@PostMapping(path="/add") // Map ONLY POST Requests
+	/*@PostMapping(path="/add") // Map ONLY POST Requests
 	  public @ResponseBody String addNewUser (@RequestParam String name
 	      , @RequestParam String email) {
 	    // @ResponseBody means the returned String is the response, not a view name
@@ -28,7 +28,7 @@ public class UsersController {
 	    n.setEmail(email);
 	    usersRepository.save(n);
 	    return "Saved";
-	  }
+	  }*/
 	
 	@GetMapping(path="/all")
 	  public @ResponseBody Iterable<Users> getAllUsers() {
