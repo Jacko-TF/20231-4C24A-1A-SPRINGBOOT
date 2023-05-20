@@ -8,7 +8,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
 public class SecurityConfig {
-
+	
     private final LogoutHandler logoutHandler;
 
     public SecurityConfig(LogoutHandler logoutHandler) {
@@ -16,7 +16,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    /*public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.authorizeRequests()
         			.mvcMatchers("/").permitAll()
         			.anyRequest().authenticated()
@@ -24,6 +24,16 @@ public class SecurityConfig {
                 .and().logout()
 	                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 	                .addLogoutHandler(logoutHandler)
-                .and().build();
-    }  
+                .and().build();*/
+        
+	    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+	        return http
+	        		.csrf().disable()
+	                .oauth2Login()
+	                .and().logout()
+	                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+	                .addLogoutHandler(logoutHandler)
+	                .and().build();
+	    }
+      
 }

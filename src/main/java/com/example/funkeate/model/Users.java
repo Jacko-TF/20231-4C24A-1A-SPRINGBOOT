@@ -10,8 +10,8 @@ import java.util.Date;
 @Entity 
 public class Users {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
 	
 	@Column(columnDefinition = "varchar(255)", 
 			unique = true, nullable = false)
@@ -47,11 +47,11 @@ public class Users {
     @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date created_at;
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
