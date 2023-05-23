@@ -1,17 +1,8 @@
-# src/main/resources/application.yml
+auth0:
+  audience: https://dev-hfm58bxg2683jzf2.us.auth0.com/api/v2/
 spring:
   security:
     oauth2:
-      client:
-        registration:
-          auth0:
-            client-id: 5cHBocd4hrfl8siO8W1b7jpqueMlmEtX
-            client-secret: FyH-bmKg30-SJG3GRme4GdOy6ag13h75du9c7cDsuJ0KAdujuf_hDTYuijE2FDfW
-            scope:
-              - openid
-              - profile
-              - email
-        provider:
-          auth0:
-            # trailing slash is important!
-            issuer-uri: https://dev-hfm58bxg2683jzf2.us.auth0.com/
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-hfm58bxg2683jzf2.us.auth0.com/
